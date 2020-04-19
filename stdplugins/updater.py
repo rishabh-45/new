@@ -78,8 +78,8 @@ async def updater(message):
 
     if not changelog:
         await message.edit("`Updating...`")
-        await asyncio.sleep(8)
- 
+        await asyncio.sleep(3)
+
     message_one = NEW_BOT_UP_DATE_FOUND.format(
         branch_name=active_branch_name,
         changelog=changelog
@@ -88,18 +88,18 @@ async def updater(message):
         branch_name=active_branch_name
     )
 
-    # if len(message_one) > 4095:
-    #send log as a sendfile always...
-    with open("change.log", "w+", encoding="utf8") as out_file:
-        out_file.write(str(message_one))
-    await borg.send_message(
-        message.chat_id,
-        document="change.log",
-        caption="changelog"
-    )
-    os.remove("change.log")
-    # else:
-    #     await message.edit(message_one)
+    if len(message_one) > 4095:
+        with open("change.log", "w+", encoding="utf8") as out_file:
+            out_file.write(str(message_one))
+        await borg.send_message(
+            message.chat_id,
+            document="change.log",
+            caption=message_two
+        )
+        os.remove("change.log")
+    else:
+        await message.edit(message_one)
+        await asyncio.sleep(8)
 
     temp_upstream_remote.fetch(active_branch_name)
     repo.git.reset("--hard", "FETCH_HEAD")
@@ -117,7 +117,8 @@ async def updater(message):
 
                 heroku_app = None
                 for i in heroku_applications:
-                    if i.name == Config.HEROKU_APP_NAME or i.name==Config.HEROKU_LINK.split(".")[0][8:]:
+                    extr_name=Config.HEROKU_LINK.split(".")[0][8:]
+                    if i.name == Config.HEROKU_APP_NAME or i.name==extr_name:
                         heroku_app = i
                 if heroku_app is None:
                     await message.edit("Invalid APP Name. Please set the name of your bot in heroku in the var `HEROKU_APP_NAME.`")
