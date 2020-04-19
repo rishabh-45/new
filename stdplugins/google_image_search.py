@@ -24,7 +24,7 @@ async def _(event):
     except  Exception as e:
         logger.warn(f"error {e}")
         os.system("./stdplugins/install_chromedriver.sh")
-        await  event.edit("installing particular driver ..run again")
+        await  event.edit("error "+str(e))
 
         return
     await event.edit("Sending File now...")
@@ -140,8 +140,8 @@ def search_and_download(search_term:str,target_path=Config.TMP_DOWNLOAD_DIRECTOR
         print("using firefox now")
         with webdriver.Firefox() as wd:  
             res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5)
-    except :
-        logger.info("Firefox exception.\nUsing Chrome now")
+    except Exception as e:
+        logger.info("Firefox exception.\nUsing Chrome now"+str(e))
         print("firefox exception")
         with webdriver.Chrome() as wd:
             res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5)
