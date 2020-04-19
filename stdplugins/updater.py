@@ -117,6 +117,9 @@ async def updater(message):
 
                 heroku_app = None
                 for i in heroku_applications:
+                    extr_name=""
+                    if Config.HEROKU_LINK==None:
+                        extr_name="12i3i102i"
                     extr_name=Config.HEROKU_LINK.split(".")[0][8:]
                     if i.name == Config.HEROKU_APP_NAME or i.name==extr_name:
                         heroku_app = i
