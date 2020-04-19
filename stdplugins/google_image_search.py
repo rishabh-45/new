@@ -136,11 +136,14 @@ def search_and_download(search_term:str,target_path=Config.TMP_DOWNLOAD_DIRECTOR
         os.makedirs(target_folder)
     res=[]
     try:
-        with webdriver.Chrome() as wd:  
+        logger.info("using Firefox")
+        print("using firefox now")
+        with webdriver.Firefox() as wd:  
             res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5)
     except :
-        logger.error("Chromedriver exception.\nUsing Firefox now")
-        with webdriver.Firefox() as wd:
+        logger.info("Firefox exception.\nUsing Chrome now")
+        print("firefox exception")
+        with webdriver.Chrome() as wd:
             res = fetch_image_urls(search_term, number_images, wd=wd, sleep_between_interactions=0.5)
     for elem in res:
         paths=persist_image(target_folder,elem)
