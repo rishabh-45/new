@@ -95,7 +95,7 @@ async def updater(message):
     await borg.send_message(
         message.chat_id,
         document="change.log",
-        caption=message_two
+        caption="changelog"
     )
     os.remove("change.log")
     # else:
