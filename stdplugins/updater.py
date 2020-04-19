@@ -98,8 +98,9 @@ async def updater(message):
         )
         os.remove("change.log")
     else:
-        await message.edit(message_one)
-        await asyncio.sleep(8)
+        await borg.send_message(message.chat_id,"ChangeLog:\n"+message_one)
+        # await message.edit(message_one)
+        await asyncio.sleep(3)
 
     temp_upstream_remote.fetch(active_branch_name)
     repo.git.reset("--hard", "FETCH_HEAD")

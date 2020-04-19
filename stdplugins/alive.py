@@ -10,7 +10,7 @@ import os
 MODULE_LIST.append("alive")
 
 
-BUILD="-70x03"
+BUILD="-70x04"
 
 @borg.on(admin_cmd(pattern="alive ?(.*)", allow_sudo=True))  # pylint:disable=E0602
 async def _(event):
