@@ -226,13 +226,5 @@
     "url": "https://github.com/amivin/aria2-heroku"
     }, {
     "url": "heroku/python"
-  },
-  {
-"url":"http://github.com/buitron/geckodriver-buildpack"
-  },
-  {
-    "url":"http://github.com/buitron/firefox-buildpack"
-  }
-
-]
+  }]
 }
