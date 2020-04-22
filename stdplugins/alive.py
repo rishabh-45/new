@@ -44,7 +44,6 @@ async def _(event):
     specs = f"```System: {uname.system}```\n```Release: {uname.release}```\n```Version: {uname.version}```\n```Processor: {uname.processor}```\n```Memory [RAM]: {get_size(memory.total)}```"
     help_string = f":-> \t\t          **BEASTBOT-REBORN v 2.01**\t\t          <-:\n\n\
     \n**Owner** : [{user_first_name} {user_last_name}](https://t.me/{user_name}).\n\
-    \n**Build** : ```{user_first_name}{BUILD}```\n**By** : @beast0110\
     \n**System Information** : \n{specs}\
     \n**Python** : ```{sys.version[:5]}```\n**Telethon** : ```{__version__}```\n"
     
