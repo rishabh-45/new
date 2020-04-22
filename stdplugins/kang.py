@@ -52,10 +52,8 @@ async def _(event):
     me = borg.me
     userid = event.from_id
     packname = f"{PACK_NAME}"
-    # format:BEASTBOT_x_userid
-    #format for Uniborg user : set PACK_PREFIX as Uniborg_Pack
-    packshortname = f"{Config.PACK_PREFIX}{PACK_NAME[-1]}_{userid}"
-    logger.info("sticker:"+packshortname)
+    # format:Uni_Borg_userid
+    packshortname = f"Uniborg_Pack{PACK_NAME[-1]}_{userid}"
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
@@ -65,10 +63,8 @@ async def _(event):
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
         packname = f"{ANIM_PACK_NAME}"
-        # format: BEASTBOT_x_userid_as
-        #format for uniborg Uni_Borg_Pack_x_userid_as
-        packshortname = f"{Config.PACK_PREFIX_ANI}{packname[-1]}_{userid}_as"
-        logger.info("animated:"+packshortname)
+        # format: Uni_Borg_Packx_userid
+        packshortname = f"Uni_Borg_Pack{packname[-1]}_{userid}_as"
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
