@@ -45,7 +45,6 @@ async def _(event):
     help_string = f":-> \t\t          **BEASTBOT-REBORN v 2.01**\t\t          <-:\n\n\
     \n**Owner** : [{user_first_name} {user_last_name}](https://t.me/{user_name}).\n\
     \n**Build** : ```{user_first_name}{BUILD}```\n**By** : @beast0110\
-    \n**Deploy Code** : [@Github](https://github.com/authoritydmc/BEASTBOT-REBORN)\n\
     \n**System Information** : \n{specs}\
     \n**Python** : ```{sys.version[:5]}```\n**Telethon** : ```{__version__}```\n"
     
