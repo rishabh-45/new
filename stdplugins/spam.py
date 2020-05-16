@@ -1,6 +1,6 @@
 # For UniBorg
 # By Priyam Kalra
-# Syntax (.spam <number of msgs [limit = 999]> <text>)
+# Syntax (.spam <number of msgs [limit = 9999]> <text>)
 
 from asyncio import wait
 from telethon import events
